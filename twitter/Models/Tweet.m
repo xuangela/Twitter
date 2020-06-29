@@ -50,7 +50,7 @@
     return self;
 }
 
-+ (NSMutableArray *)tweetsWithArra:(NSArray *)dictionaries {
++ (NSMutableArray *)tweetsWithArray:(NSArray *)dictionaries {
     NSMutableArray *tweets = [NSMutableArray array];
     for (NSDictionary *dictionary in dictionaries) {
         Tweet *tweet = [[Tweet alloc] initWithDictionary:dictionary];
