@@ -15,7 +15,9 @@
     if (self) {
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
-    }
+        
+        NSString *pfpURLString = dictionary[@"profile_image_url_https"];
+        self.pfpURL = [NSURL URLWithString:pfpURLString];    }
     return self;
 }
 

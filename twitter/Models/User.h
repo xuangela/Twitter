@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *screenName;
+@property (nonatomic, strong) NSURL *pfpURL;
 
 // initializer
 - (instancetype) initWithDictionary:(NSDictionary *) dictionary;
