@@ -30,23 +30,35 @@
     
     self.tableView.rowHeight = 200;
     
-    // Get tweets in timeline
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+    
+    [self beginRefresh:refreshControl];
+    
+}
+
+// Makes a network request to get updated data
+  // Updates the tableView with the new data
+  // Hides the RefreshControl
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    [refreshControl beginRefreshing];
+
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
 
             self.tweets = [NSMutableArray arrayWithArray:tweets];
             [self.tableView reloadData];
-            
-            for (Tweet *single in self.tweets) {
-                NSString *text = single.text;
-                NSLog(@"%@", text);
-            }
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
     }];
-
+    
+    [self.tableView reloadData];
+    [refreshControl endRefreshing];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,37 +78,13 @@
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     
+    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     Tweet *tweet = self.tweets[indexPath.row];
 
-
-
-    //for retweets
-    
-    //Tweet
-//    @property (nonatomic, strong) NSString *idStr; // For favoriting, retweeting & replying
-//    @property (nonatomic, strong) NSString *text; // Text content of tweet
-//    @property (nonatomic) int favoriteCount; // Update favorite count label
-//    @property (nonatomic) BOOL favorited; // Configure favorite button
-//    @property (nonatomic) int retweetCount; // Update favorite count label
-//    @property (nonatomic) BOOL retweeted; // Configure retweet button
-//    @property (nonatomic, strong) User *user; // Contains Tweet author's name, screenname, etc.
-//    @property (nonatomic, strong) NSString *createdAtString; // Display date
-
-  
-    //TweetCell
-//@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
-//@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
-
-
-    
     cell.screenNameLabel.text = tweet.user.screenName;
-    
     cell.usernameLabel.text = tweet.user.name;
-    
     cell.timestampLabel.text = tweet.createdAtString;
-    
     cell.tweetTextLabel.text = tweet.text;
 
     //cell.pfpView;
@@ -141,13 +129,6 @@
     } else {
         cell.retweetButton.selected = NO;
     }
-    
-
-
-    
-
-
-    
     return cell;
 }
 
