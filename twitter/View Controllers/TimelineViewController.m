@@ -12,6 +12,8 @@
 #import "TweetCell.h"
 #import "Tweet.h"
 #import "ComposeViewController.h"
+#import "AppDelegate.h"
+#import "LoginViewController.h"
 
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -47,12 +49,8 @@
 
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
-
             self.tweets = [NSMutableArray arrayWithArray:tweets];
             [self.tableView reloadData];
-        } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
     }];
     
@@ -85,6 +83,18 @@
     [self.tableView reloadData];
 }
 
+- (IBAction)tapLogout:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    appDelegate.window.rootViewController = loginViewController;
+    
+    [[APIManager shared] logout];
+}
+
+
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -94,9 +104,4 @@
     ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
     composeController.delegate = self;
 }
-
-
-
-
-
 @end
