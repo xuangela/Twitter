@@ -68,56 +68,10 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
-    Tweet *tweet = self.tweets[indexPath.row];
+    
+    [cell setTweet:self.tweets[indexPath.row]];
 
-    cell.screenNameLabel.text = tweet.user.screenName;
-    cell.usernameLabel.text = tweet.user.name;
-    cell.timestampLabel.text = tweet.createdAtString;
-    cell.tweetTextLabel.text = tweet.text;
-
-    //cell.pfpView;
-    NSURL *pfpURL = tweet.user.pfpURL;
-    NSURLRequest *pfpRequest = [NSURLRequest requestWithURL:pfpURL];
-    
-    [cell.pfpView setImageWithURLRequest:pfpRequest placeholderImage:nil
-    success:^(NSURLRequest *imageRequest, NSHTTPURLResponse *imageResponse, UIImage *image) {
-        
-        // imageResponse will be nil if the image is cached
-        // fade in if not cached
-        if (imageResponse) {
-            cell.pfpView.alpha = 0.0;
-            cell.pfpView.image = image;
-            
-            //Animate UIImageView back to alpha 1 over 0.3sec
-            [UIView animateWithDuration:0.3 animations:^{
-                cell.pfpView.alpha = 1.0;
-            }];
-        }
-        else {
-            cell.pfpView.image = image;
-        }
-    }
-    failure:^(NSURLRequest *request, NSHTTPURLResponse * response, NSError *error) {}];
-    
-    NSString *favoriteCt = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
-    NSString *retweetCt = [NSString stringWithFormat:@"%d", tweet.retweetCount];
-    
-    [cell.favoriteButton setTitle:favoriteCt forState:UIControlStateNormal];
-    [cell.retweetButton setTitle:retweetCt forState:UIControlStateNormal];
-    
-    if (tweet.favorited) {
-        cell.favoriteButton.selected = YES;
-    } else {
-        cell.favoriteButton.selected = NO;
-    }
-    
-    if (tweet.retweeted) {
-        cell.retweetButton.selected = YES;
-    } else {
-        cell.retweetButton.selected = NO;
-    }
     return cell;
 }
 
@@ -125,6 +79,11 @@
     return 20;
 }
 
+- (void)didTweet:(nonnull Tweet *)tweet {
+    [self.tweets insertObject:tweet atIndex:0];
+    
+    [self.tableView reloadData];
+}
 
 #pragma mark - Navigation
 
@@ -137,11 +96,7 @@
 }
 
 
-- (void)didTweet:(nonnull Tweet *)tweet {
-    [self.tweets insertObject:tweet atIndex:0];
-    
-    [self.tableView reloadData];
-}
+
 
 
 @end

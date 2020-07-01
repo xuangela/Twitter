@@ -6,7 +6,7 @@
 //  Copyright © 2020 Emerson Malca. All rights reserved.
 //
 
-//#import "STTweetLabel.h"
+#import "Tweet.h"
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 
 
-@property (nonatomic, strong) NSDictionary *tweet;
+@property (nonatomic, strong) Tweet *tweet;
 
 @end
 
