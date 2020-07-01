@@ -11,9 +11,10 @@
 #import "APIManager.h"
 #import "TweetCell.h"
 #import "Tweet.h"
+#import "ComposeViewController.h"
 
 
-@interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *tweets;
@@ -66,17 +67,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
@@ -95,8 +85,8 @@
     success:^(NSURLRequest *imageRequest, NSHTTPURLResponse *imageResponse, UIImage *image) {
         
         // imageResponse will be nil if the image is cached
+        // fade in if not cached
         if (imageResponse) {
-            NSLog(@"Image was NOT cached, fade in image");
             cell.pfpView.alpha = 0.0;
             cell.pfpView.image = image;
             
@@ -106,7 +96,6 @@
             }];
         }
         else {
-            NSLog(@"Image was cached so just update the image");
             cell.pfpView.image = image;
         }
     }
@@ -134,6 +123,24 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 20;
+}
+
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Pass the selected object to the new view controller.
+    
+    UINavigationController *navigationController = [segue destinationViewController];
+    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+    composeController.delegate = self;
+}
+
+
+- (void)didTweet:(nonnull Tweet *)tweet {
+    [self.tweets insertObject:tweet atIndex:0];
+    
+    [self.tableView reloadData];
 }
 
 

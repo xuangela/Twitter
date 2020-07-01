@@ -10,8 +10,11 @@
 #import "Tweet.h"
 
 static NSString * const baseURLString = @"https://api.twitter.com";
-static NSString * const consumerKey = @"NFENfEgylc8Z2EtFJmICYf3OV";
-static NSString * const consumerSecret = @"BwugVW51Md1KV59cutPC1q6M2uoOLUOVy3q2bVkQaY1OcM3OUN";
+static NSString * const consumerKey = @"PvUQwBxuqdfjPDEs2HPAzmC5f";
+static NSString * const consumerSecret = @"YRG8MFWN3UAEZJ2O0ERhVnVo2WgvaLCCbpP7chtHj62BhOaX2H";
+
+//static NSString * const consumerKey = @"rbNIFbpNJJ14x4MZ9bEB8EpYr";
+//static NSString * const consumerSecret = @"kyq66rE7zyg21ak0hSlrRVCOwC5tqND9u8H2DeCflYeMy9W6mX";
 
 @interface APIManager()
 
@@ -59,6 +62,19 @@ static NSString * const consumerSecret = @"BwugVW51Md1KV59cutPC1q6M2uoOLUOVy3q2b
             // There was a problem
             completion(nil, error);
         }];
+}
+
+- (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion{
+    NSString *urlString = @"1.1/statuses/update.json";
+    NSDictionary *parameters = @{@"status": text};
+    
+    [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
+        Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
+        completion(tweet, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog (@"%@", error);
+        completion(nil, error);
+    }];
 }
 
 @end
