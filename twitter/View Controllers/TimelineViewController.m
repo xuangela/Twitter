@@ -31,8 +31,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.tableView.rowHeight = 200;
-    
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:refreshControl atIndex:0];
