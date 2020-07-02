@@ -9,6 +9,7 @@
 #import "TweetCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "APIManager.h"
+#import "NSDate+DateTools.h"
 
 @implementation TweetCell
 
@@ -17,9 +18,9 @@
     
     self.screenNameLabel.text = tweet.user.screenName;
     self.usernameLabel.text = tweet.user.name;
-    self.timestampLabel.text = tweet.createdAtString;
+    self.timestampLabel.text = [tweet.createdAt shortTimeAgoSinceNow];
     self.tweetTextLabel.text = tweet.text;
-
+    
     //cell.pfpView;
     NSURL *pfpURL = tweet.user.pfpURL;
     NSURLRequest *pfpRequest = [NSURLRequest requestWithURL:pfpURL];

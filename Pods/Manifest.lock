@@ -16,24 +16,28 @@ PODS:
     - AFNetworking/NSURLSession
   - BDBOAuth1Manager (2.0.0):
     - AFNetworking/NSURLSession (~> 3.0.0)
+  - DateTools (2.0.0)
   - STTweetLabel (3.1.21)
 
 DEPENDENCIES:
   - AFNetworking
   - BDBOAuth1Manager
+  - DateTools
   - STTweetLabel
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - BDBOAuth1Manager
+    - DateTools
     - STTweetLabel
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   BDBOAuth1Manager: 92d17d06f8a648602962304cd2f35ae7394fa001
+  DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   STTweetLabel: 842bc86cdf13288414440405757478bd4820e1be
 
-PODFILE CHECKSUM: 0a01b259bdb763a8542ea4beb50e34613956dc85
+PODFILE CHECKSUM: c1717251047e81e3b50e84ad23dc92cdedbc3fc1
 
 COCOAPODS: 1.9.3
