@@ -99,11 +99,15 @@
 }
 
 - (IBAction)didTapReply:(id)sender {
-    [[APIManager shared] postreplyWithText:self.replytextView.text replyTo:self.tweet.idStr completion:^(Tweet * tweet, NSError *error) {
+    NSString *mentionString = [@"@" stringByAppendingString:self.tweet.user.name];
+    NSString *fullMentionString = [mentionString stringByAppendingString:@" "];
+    NSString *fullReplyString = [fullMentionString stringByAppendingString:self.replytextView.text];
+    [[APIManager shared] postreplyWithText:fullReplyString replyTo:self.tweet.idStr completion:^(Tweet * tweet, NSError *error) {
         if (error) {
             NSLog(@"Error composing Tweet: %@", error.localizedDescription);
         } else {
-            [self.delegate didTweet:tweet];
+            tweet.idStr = self.tweet.idStr;
+            [self.delegate didTweet:tweet];                                     
             self.replytextView.text = @"";
             self.replyButton.alpha = 0;
         }
