@@ -60,8 +60,17 @@ Here's a walkthrough of implemented user stories:
 <img src='https://i.imgur.com/UtPCZRd.gifv' title='User profile' width='' alt='User profile' />
 <img src='https://i.imgur.com/Pq2TNKE.gifv' title='Screen rotation' width='' alt='Screen rotation' />
 
+Links in case gifs to not load properly: 
+[Composing a tweet](https://i.imgur.com/kWOzN3y.gifv)
+[Favoriting and Retweeting](https://i.imgur.com/ZtSxGfl.gifv)
+[Login and Logout](https://i.imgur.com/fr2vLkM.gifv)
+[Replying to a tweet](https://i.imgur.com/AULZZNk.gifv)
+[User profile](https://i.imgur.com/UtPCZRd.gifv)
+[Screen rotation](https://i.imgur.com/Pq2TNKE.gifv)
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
+Links created by uploading to imgur. 
 
 ## Notes
 
