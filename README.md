@@ -53,7 +53,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://giphy.com/gifs/YqR1UcZgiX0cSZbJPt' title='Composing a tweet' width='' alt='Composing a tweet' />
+<img src='https://i.imgur.com/kWOzN3y.gifv' title='Composing a tweet' width='' alt='Composing a tweet' />
 <img src='https://i.imgur.com/ZtSxGfl.gifv' title='Favoriting and Retweeting' width='' alt='Favoriting and Retweeting' />
 <img src='https://i.imgur.com/fr2vLkM.gifv' title='Login and Logout' width='' alt='Login and Logout' />
 <img src='https://i.imgur.com/AULZZNk.gifv' title='Replying to a tweet' width='' alt='Replying to a tweet' />
