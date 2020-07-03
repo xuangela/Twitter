@@ -53,13 +53,13 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/MxE4Jf5.gifvf' title='Composing a tweet' width='' alt='Composing a tweet' />
+<img src='https://i.imgur.com/MxE4Jf5.gifv' title='Composing a tweet' width='' alt='Composing a tweet' />
 <img src='https://i.imgur.com/ZtSxGfl.gifv' title='Favoriting and Retweeting' width='' alt='Favoriting and Retweeting' />
 <img src='https://i.imgur.com/fr2vLkM.gifv' title='Login and Logout' width='' alt='Login and Logout' />
 <img src='https://i.imgur.com/x6Yjbo9.gifv' title='Replying to a tweet' width='' alt='Replying to a tweet' />
 <img src='https://i.imgur.com/UtPCZRd.gifv' title='User profile' width='' alt='User profile' />
 <img src='https://i.imgur.com/Pq2TNKE.gifv' title='Screen rotation' width='' alt='Screen rotation' />
-https://i.imgur.com/Pq2TNKE.gifv
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
