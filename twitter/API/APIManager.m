@@ -61,6 +61,20 @@ static NSString * const consumerSecret = @"YRG8MFWN3UAEZJ2O0ERhVnVo2WgvaLCCbpP7c
         }];
 }
 
+- (void)getMyInfo:(void(^)(NSDictionary *userInfo, NSError *error))completion {
+    // Create a GET Request
+    [self GET:@"1.1/account/verify_credentials.json"
+        parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable userInfo) {
+            // Success
+            completion(userInfo, nil);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            // There was a problem
+            completion(nil, error);
+        }];
+}
+
+
+
 - (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion{
     NSString *urlString = @"1.1/statuses/update.json";
     NSDictionary *parameters = @{@"status": text};

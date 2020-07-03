@@ -17,6 +17,7 @@
 		6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD278F520BCB68B0085BC29 /* APIManager.m */; };
 		6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2790520BCC0380085BC29 /* LoginViewController.m */; };
 		6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2790820BCC04D0085BC29 /* TimelineViewController.m */; };
+		B9038D8324AED9B500C5BD27 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9038D8224AED9B500C5BD27 /* ProfileViewController.m */; };
 		B91C99D724AE407E00D09471 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B91C99D624AE407E00D09471 /* DetailsViewController.m */; };
 		B93E11F824AA77BB0018ADC6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B93E11F724AA77BB0018ADC6 /* User.m */; };
 		B93E11FB24AA78B60018ADC6 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = B93E11FA24AA78B60018ADC6 /* Tweet.m */; };
@@ -44,6 +45,8 @@
 		6AD2790720BCC04D0085BC29 /* TimelineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
 		6AD2790820BCC04D0085BC29 /* TimelineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		75895B6507775E8AFBEEA2D9 /* Pods-twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.debug.xcconfig"; sourceTree = "<group>"; };
+		B9038D8124AED9B500C5BD27 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		B9038D8224AED9B500C5BD27 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		B91C99D524AE407E00D09471 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		B91C99D624AE407E00D09471 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		B93E11F624AA77BB0018ADC6 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 				B94AF6A024ABD9CE00CD9883 /* ComposeViewController.m */,
 				B91C99D524AE407E00D09471 /* DetailsViewController.h */,
 				B91C99D624AE407E00D09471 /* DetailsViewController.m */,
+				B9038D8124AED9B500C5BD27 /* ProfileViewController.h */,
+				B9038D8224AED9B500C5BD27 /* ProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,
 				6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */,
+				B9038D8324AED9B500C5BD27 /* ProfileViewController.m in Sources */,
 				6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
