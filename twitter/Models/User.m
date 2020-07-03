@@ -14,9 +14,9 @@
     self = [super init];
     if (self) {
         self.name = dictionary[@"name"];
-        self.screenName = dictionary[@"screen_name"];
+        self.screenName =  [@"@" stringByAppendingString:dictionary[@"screen_name"]];
         
-        NSString *pfpURLString = dictionary[@"profile_image_url_https"];
+        NSString *pfpURLString = [dictionary[@"profile_image_url_https"] stringByReplacingOccurrencesOfString:@"_normal" withString:@""];;
         self.pfpURL = [NSURL URLWithString:pfpURLString];    }
     return self;
 }

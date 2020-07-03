@@ -6,17 +6,17 @@
 //  Copyright © 2018 Emerson Malca. All rights reserved.
 //
 
-#import "TimelineViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "APIManager.h"
 #import "TweetCell.h"
 #import "Tweet.h"
-#import "ComposeViewController.h"
 #import "AppDelegate.h"
+#import "ComposeViewController.h"
 #import "LoginViewController.h"
+#import "DetailsViewController.h"
+#import "TimelineViewController.h"
 
-
-@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface TimelineViewController () <ComposeViewControllerDelegate, DetailViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *tweets;
@@ -76,8 +76,7 @@
 }
 
 - (void)didTweet:(nonnull Tweet *)tweet {
-    [self.tweets insertObject:tweet atIndex:0];
-    
+    [self.tweets insertObject:tweet atIndex:0];    
     [self.tableView reloadData];
 }
 
@@ -96,10 +95,19 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Pass the selected object to the new view controller.
+    //if click on tweet
+    if ([sender isKindOfClass:[TweetCell class]]) {
+       TweetCell *tappedCell = sender;
+       DetailsViewController *detailViewController = (DetailsViewController*)[segue destinationViewController];
+        detailViewController.tweet = tappedCell.tweet;
+        detailViewController.delegate = self;
+    } else {    //if click on compose
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    }
     
-    UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-    composeController.delegate = self;
+   
+    
 }
 @end

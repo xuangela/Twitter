@@ -50,7 +50,7 @@ static NSString * const consumerSecret = @"YRG8MFWN3UAEZJ2O0ERhVnVo2WgvaLCCbpP7c
 
 - (void)getHomeTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion {
     // Create a GET Request
-    [self GET:@"1.1/statuses/home_timeline.json"
+    [self GET:@"1.1/statuses/home_timeline.json?tweet_mode=extended"
         parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
             // Success
         NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
@@ -64,6 +64,19 @@ static NSString * const consumerSecret = @"YRG8MFWN3UAEZJ2O0ERhVnVo2WgvaLCCbpP7c
 - (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion{
     NSString *urlString = @"1.1/statuses/update.json";
     NSDictionary *parameters = @{@"status": text};
+    
+    [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
+        Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
+        completion(tweet, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog (@"%@", error);
+        completion(nil, error);
+    }];
+}
+
+- (void)postreplyWithText:(NSString *)text replyTo:(NSString *)idNum completion:(void (^)(Tweet *, NSError *))completion{
+    NSString *urlString = @"1.1/statuses/update.json";
+    NSDictionary *parameters = @{@"status": text, @"in_reply_to_status_id": idNum};
     
     [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
         Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
