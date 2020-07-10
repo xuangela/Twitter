@@ -53,24 +53,15 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/kWOzN3y.gifv' title='Composing a tweet' width='' alt='Composing a tweet' />
-<img src='https://i.imgur.com/ZtSxGfl.gifv' title='Favoriting and Retweeting' width='' alt='Favoriting and Retweeting' />
-<img src='https://i.imgur.com/fr2vLkM.gifv' title='Login and Logout' width='' alt='Login and Logout' />
-<img src='https://i.imgur.com/AULZZNk.gifv' title='Replying to a tweet' width='' alt='Replying to a tweet' />
-<img src='https://i.imgur.com/UtPCZRd.gifv' title='User profile' width='' alt='User profile' />
-<img src='https://i.imgur.com/Pq2TNKE.gifv' title='Screen rotation' width='' alt='Screen rotation' />
-
-Links in case gifs to not load properly: 
-[Composing a tweet](https://i.imgur.com/kWOzN3y.gifv)
-[Favoriting and Retweeting](https://i.imgur.com/ZtSxGfl.gifv)
-[Login and Logout](https://i.imgur.com/fr2vLkM.gifv)
-[Replying to a tweet](https://i.imgur.com/AULZZNk.gifv)
-[User profile](https://i.imgur.com/UtPCZRd.gifv)
-[Screen rotation](https://i.imgur.com/Pq2TNKE.gifv)
+<img src='https://github.com/xuangela/Twitter/blob/master/Gifs/composing.gif' title='Composing a tweet' width='' alt='Composing a tweet' />
+<img src='https://github.com/xuangela/Twitter/blob/master/Gifs/favoriting%20retweeting.gif' title='Favoriting and Retweeting' width='' alt='Favoriting and Retweeting' />
+<img src='https://github.com/xuangela/Twitter/blob/master/Gifs/Login%20and%20logout.gif' title='Login and Logout' width='' alt='Login and Logout' />
+<img src='https://github.com/xuangela/Twitter/blob/master/Gifs/replying.gif' title='Replying to a tweet' width='' alt='Replying to a tweet' />
+<img src='https://github.com/xuangela/Twitter/blob/master/Gifs/profile%20view.gif' title='User profile' width='' alt='User profile' />
+<img src='https://github.com/xuangela/Twitter/blob/master/Gifs/screen%20rotation.gif' title='Screen rotation' width='' alt='Screen rotation' />
 
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
-Links created by uploading to imgur. 
 
 ## Notes
 
